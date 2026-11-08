@@ -1,30 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MC-World · 建设中</title>
-<style>
-  :root{color-scheme:dark}
-  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0d1117;color:#e6edf3;font:16px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
-  .box{max-width:640px;padding:40px}
-  h1{font-size:28px;margin:0 0 8px}
-  p{color:#8b949e;margin:6px 0}
-  .tag{display:inline-block;padding:2px 10px;border-radius:999px;background:#1f6feb22;color:#58a6ff;font-size:13px}
-  ul{color:#8b949e;padding-left:20px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MC-World · 地球Online 生存网络</title>
+  <meta name="description" content="MC-World 是一个完全免费、支持 1.21.11+ 任意加载器的 Minecraft 服务器网络：小游戏、和平生存、规则服与预定地图，六币种经济与 50K 新用户点数。">
+  <meta name="theme-color" content="#0a0d12">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-<div class="box">
-  <span class="tag">bootstrap</span>
-  <h1>MC-World</h1>
-  <p>小游戏 · 地球 Online · 和平生存 · 规则服</p>
-  <ul>
-    <li>服务器编号：1 登录服 · 2 主服 · 3-1024 游戏服 · 1025-1030 镜像服</li>
-    <li>货币：下界合金 / 钻石 / 绿宝石 / 紫水晶 / 金币 / 点数</li>
-    <li>脚本：BetterScript (.bs)</li>
-  </ul>
-  <p>站点正在构建中，稍后由 web 团队替换为完整门户。</p>
-</div>
+  <a class="sr-only" href="#main">跳到主要内容</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./index.html">
+      <img src="./favicon.svg" alt="MC-World 标志" width="30" height="30">
+      <span>MC-World<small>地球Online 生存网络</small></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="./index.html">主页</a>
+      <a href="./play.html">玩法</a>
+      <a href="./servers.html">服务器</a>
+      <a href="./connect.html">连接</a>
+      <a href="./account.html">账号</a>
+      <a href="./rules.html">规则</a>
+      <a href="./shop.html">商店</a>
+    </nav>
+    <div class="header-meta">
+      <span class="status-dot" id="api-dot" aria-hidden="true"></span>
+      <span id="api-label">连接中…</span>
+      <span class="header-user" id="header-user"></span>
+    </div>
+  </div>
+</header>
+<main id="main">
+  <div class="container">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">EARTH ONLINE · 免费公益服</div>
+        <h1>在一个方块地球上，<span>过另一种生活</span></h1>
+        <p class="lead">MC-World 是仿「地球Online」的 Minecraft 服务器网络：小游戏、和平生存、规则服、预定地图，四类玩法共用一套账号与经济。完全免费，支持 1.21.11 及以上的 Fabric / Forge / NeoForge / 原版客户端。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="./connect.html">进入服务器</a>
+          <a class="btn" href="./account.html">注册账号</a>
+          <span class="ip-chip"><span class="status-dot on" aria-hidden="true"></span><b id="hero-host">play.mc-world.example:25565</b><button class="btn btn-sm btn-ghost" id="copy-ip" type="button" data-copy="play.mc-world.example:25565">复制</button></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-status">
+      <div class="section-head">
+        <h2 id="h-status">网络状态</h2>
+        <p class="hint"><span class="badge badge-mute" id="home-source">读取中</span> <span id="home-updated" class="muted"></span></p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="k">当前在线玩家</div><div class="v" id="stat-online">—</div></div>
+        <div class="stat"><div class="k">运行中服务器</div><div class="v" id="stat-servers">—</div></div>
+        <div class="stat"><div class="k">游戏服实例</div><div class="v" id="stat-games">—</div></div>
+        <div class="stat"><div class="k">平均 TPS</div><div class="v" id="stat-tps">—</div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-play">
+      <div class="section-head">
+        <h2 id="h-play">四种玩法，一个地球</h2>
+        <p class="hint"><a href="./play.html">查看玩法详解 →</a></p>
+      </div>
+      <div class="grid grid-4">
+        <article class="card card-emerald">
+          <h3><span class="ico">◆</span>小游戏</h3>
+          <p>空岛战争、起床战争、跑酷竞速、饥饿游戏，按需开服、空服回收，随时加入。</p>
+        </article>
+        <article class="card card-purple">
+          <h3><span class="ico">✿</span>和平生存</h3>
+          <p>主世界无 PVP、无破坏，专注建造、交易与探索，适合长期定居。</p>
+        </article>
+        <article class="card card-gold">
+          <h3><span class="ico">⚖</span>规则服</h3>
+          <p>明确的行为准则与申诉流程，管理员巡查，拒绝外挂、刷物品与恶意骚扰。</p>
+        </article>
+        <article class="card card-blue">
+          <h3><span class="ico">⌘</span>预定地图</h3>
+          <p>预生成主城与出生点，修复 spawn 区块，进服即落地，不用等待地图加载。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-econ">
+      <div class="section-head">
+        <h2 id="h-econ">六币种经济</h2>
+        <p class="hint">固定汇率 · 每级 100 倍</p>
+      </div>
+      <div class="chain" role="list" aria-label="货币汇率链">
+        <div class="chain-node" role="listitem"><div class="cur"><span class="swatch sw-netherite" aria-hidden="true"></span>下界合金</div><div class="val">1 块</div></div>
+        <div class="chain-eq" aria-hidden="true">=</div>
+        <div class="chain-node" role="listitem"><div class="cur"><span class="swatch sw-diamond" aria-hidden="true"></span>钻石</div><div class="val">100 颗</div></div>
+        <div class="chain-eq" aria-hidden="true">=</div>
+        <div class="chain-node" role="listitem"><div class="cur"><span class="swatch sw-emerald" aria-hidden="true"></span>绿宝石</div><div class="val">10,000 颗</div></div>
+        <div class="chain-eq" aria-hidden="true">=</div>
+        <div class="chain-node" role="listitem"><div class="cur"><span class="swatch sw-amethyst" aria-hidden="true"></span>紫水晶</div><div class="val">1,000,000 枚</div></div>
+        <div class="chain-eq" aria-hidden="true">=</div>
+        <div class="chain-node" role="listitem"><div class="cur"><span class="swatch sw-gold" aria-hidden="true"></span>金币</div><div class="val">100,000,000 枚</div></div>
+        <div class="chain-eq" aria-hidden="true">=</div>
+        <div class="chain-node" role="listitem"><div class="cur"><span class="swatch sw-point" aria-hidden="true"></span>点数</div><div class="val">10,000,000,000 点</div></div>
+      </div>
+      <p class="economy-note">汇率固定为 <b>1 下界合金 = 100 钻石 = 10K 绿宝石 = 1M 紫水晶 = 100M 金币 = 10B 点数</b>，每级恰好 100 倍，不支持反向套利。点数是最小单位，用于商店与地皮交易。</p>
+    </section>
+
+    <section class="section" aria-labelledby="h-gift">
+      <div class="banner banner-ok">
+        <div><b>新用户福利</b>：注册即送 <b>50,000 点数</b>（约 5 枚紫水晶 / 500 枚金币），可直接在主服兑换物资与地皮扩容。点数还可通过小游戏结算与每日签到获得。</div>
+      </div>
+      <div class="steps mt-2">
+        <div class="step"><h4>下载客户端</h4><p>任意 1.21.11+ 客户端：Fabric、Forge、NeoForge 或原版均可。</p></div>
+        <div class="step"><h4>注册账号</h4><p>网页注册，令牌只保存在你自己的浏览器里，前端不接触任何密钥。</p></div>
+        <div class="step"><h4>添加服务器</h4><p>地址 <span class="mono">play.mc-world.example:25565</span>，这是唯一对外入口。</p></div>
+        <div class="step"><h4>自动分配</h4><p>代理按你的状态路由：未注册 → 登录服；已登录 → 主服或小游戏服。</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-servers">
+      <div class="section-head">
+        <h2 id="h-servers">此刻最热闹的服务器</h2>
+        <p class="hint"><a href="./servers.html">全部服务器与实时状态 →</a></p>
+      </div>
+      <div class="grid grid-3" id="home-server-list">
+        <div class="empty">正在读取服务器状态…</div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <h2>准备好上线了吗？</h2>
+      <p class="dim">复制地址，启动游戏，剩下的交给代理。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a class="btn btn-primary" href="./connect.html">连接指引</a>
+        <a class="btn" href="./account.html">创建账号</a>
+        <a class="btn btn-ghost" href="./rules.html">先看规则</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© 2026 MC-World · 公益免费服务器网络<br><span class="muted">非 Mojang 官方项目，与 Mojang / Microsoft 无关联。前端零密钥，静态托管于 GitHub Pages。</span></div>
+    <div class="footer-links">
+      <a href="./index.html">主页</a>
+      <a href="./play.html">玩法</a>
+      <a href="./servers.html">服务器</a>
+      <a href="./connect.html">连接指引</a>
+      <a href="./rules.html">规则</a>
+      <a href="./shop.html">商店</a>
+    </div>
+  </div>
+</footer>
+  <script src="./config.js" defer></script>
+  <script src="./assets/js/util.js" defer></script>
+  <script src="./assets/js/mock.js" defer></script>
+  <script src="./assets/js/api.js" defer></script>
+  <script src="./assets/js/nav.js" defer></script>
+  <script src="./assets/js/home.js" defer></script>
 </body>
 </html>
